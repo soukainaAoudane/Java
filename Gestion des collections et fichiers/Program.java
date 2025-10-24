@@ -1,58 +1,52 @@
-package srcc;
-
 import java.util.*;
 
-public class Program {
+public class Main {
     public static void main(String[] args) {
-        // Création de commandes
-        Commande commande1 = new Commande(1, new Date(), "Supplier A");
-        Commande commande2 = new Commande(2, new Date(), "Supplier B");
-        Commande commande3 = new Commande(3, new Date(), "Supplier C");
-        Commande commande4 = new Commande(1, new Date(), "Supplier D"); // Même numéro que commande1
+        // Commandes
+        Commande c1 = new Commande(1, new Date(), "Fournisseur A");
+        Commande c2 = new Commande(2, new Date(), "Fournisseur B");
+        Commande c3 = new Commande(3, new Date(), "Fournisseur C");
+        Commande c4 = new Commande(1, new Date(), "Fournisseur D"); 
 
-        // Création de clients
-        Client client = new Client(1, "Soukaina AOUDANE", "CASABLANCA");
-        client.EnregistrerCommande(commande1);
-        client.EnregistrerCommande(commande2);
+        // Clients
+        Client cl1 = new Client("C1", "Soukaina", "Casa", "0611223344");
+        Client cl2 = new Client("C2", "Imane", "Fès", "0677889900");
+        ClientFidel cl3 = new ClientFidel("C3", "Youssef", "Rabat", "0655667788", "FID123", 10);
 
-        Client client2 = new Client(2, "IMANE DAHBI", "FES");
-        client2.EnregistrerCommande(commande3);
+        // Ajout commandes
+        cl1.EnregistrerCommande(c1);
+        cl1.EnregistrerCommande(c2);
+        cl2.EnregistrerCommande(c3);
 
-        // Test suppression
-        System.out.println("Avant suppression:");
-        System.out.println(client);
-        
-        client.SupprimerCommande(1);
-        System.out.println("\nAprès suppression:");
-        System.out.println(client);
+        // Affichage simple
+        System.out.println("Avant suppression : ");
+        System.out.println(cl1);
 
-        // Utilisation d'une List pour stocker plusieurs clients
-        List<Client> listeClients = new ArrayList<>();
-        listeClients.add(client);
-        listeClients.add(client2);
+        cl1.SupprimerCommande(1);
+        System.out.println("\nAprès suppression : ");
+        System.out.println(cl1);
 
-        // Triez les commandes d'un client avec Collections.sort()
-        Collections.sort(client2.getListCommandes());
-        System.out.println("\nCommandes triées par date:");
-        for (Commande cmd : client2.getListCommandes()) {
-            System.out.println(cmd);
+        // List de clients
+        List<Client> clients = Arrays.asList(cl1, cl2, cl3);
+
+        // Tri commandes
+        Collections.sort(cl1.getListeCommandes());
+        System.out.println("\nCommandes triées de cl1 : " + cl1.getListeCommandes());
+
+        // Set
+        Set<Commande> commandesSansDoublons = new HashSet<>();
+        commandesSansDoublons.add(c1);
+        commandesSansDoublons.add(c2);
+        commandesSansDoublons.add(c4); 
+
+        System.out.println("\nSet commandes sans doublons : " + commandesSansDoublons);
+
+        // Map client
+        Map<String, Client> mapClients = new HashMap<>();
+        for (Client c : clients) {
+            mapClients.put(c.getCodeClient(), c);
         }
 
-        // Utilisation d'un Set pour éviter les doublons
-        Set<Commande> setCommandes = new HashSet<>();
-        setCommandes.add(commande1);
-        setCommandes.add(commande2);
-        setCommandes.add(commande4);
-        System.out.println("\nSet de commandes (taille: " + setCommandes.size() + ")");
-
-        // Utilisation d'une Map pour associer chaque client à son codeClient
-        Map<Integer, Client> mapClients = new HashMap<>();
-        for (Client cl : listeClients) {
-            mapClients.put(cl.getCodeClient(), cl);
-        }
-        System.out.println("\nMap des clients:");
-        for (Map.Entry<Integer, Client> entry : mapClients.entrySet()) {
-            System.out.println("Code: " + entry.getKey() + " -> " + entry.getValue());
-        }
+        System.out.println("\nMap des clients : " + mapClients);
     }
 }
