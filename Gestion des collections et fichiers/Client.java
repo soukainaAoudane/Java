@@ -31,17 +31,18 @@ public class Client {
         }
     }
 
-    public boolean SupprimerCommande(int NumCommande){
-        for(Commande c:ListeCommandes){
-            if(c.getNumCommande()==NumCommande){
-                ListeCommandes.remove(c);
-                System.out.println("Commande supprimee: " + c);
+    public boolean SupprimerCommande(int NumCommande) {
+        for (int i = 0; i < ListeCommandes.size(); i++) {
+            if (ListeCommandes.get(i).getNumCommande() == NumCommande) {
+                System.out.println("Commande supprimée: " + ListeCommandes.get(i));
+                ListeCommandes.remove(i);
                 return true;
             }
         }
-        System.out.println("Commande non trouvee avec le numero: " + NumCommande);
+        System.out.println("Commande non trouvée avec le numéro: " + NumCommande);
         return false;
     }
+
 
     @Override
     public String toString() {
