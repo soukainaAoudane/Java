@@ -1,17 +1,19 @@
-package srcc;
 public class ClientFidel extends Client {
-    private String CodeFidelite;
-    private float TauxReduction;
+    private String codeFidelite;
+    private float tauxReduction;
 
-    public ClientFidel(String codeClient, String nomClient, String adrClient, String telClient, String codeFidelite, float tauxReduction) {
-        super(codeClient, nomClient, adrClient, telClient);
-        this.CodeFidelite = codeFidelite;
-        this.TauxReduction = tauxReduction;
+    // Constructeur d'initialisation
+    public ClientFidel(int codeClient, String nomClient, String adrClient, 
+                      String codeFidelite, float tauxReduction) {
+        super(codeClient, nomClient, adrClient);
+        this.codeFidelite = codeFidelite;
+        this.tauxReduction = tauxReduction;
     }
 
+    // Méthode toString
     @Override
     public String toString() {
-        super.toString();
-        return "ClientFidel [CodeFidelite=" + CodeFidelite + ", TauxReduction=" + TauxReduction + ", " + super.toString() + "]";
+        return super.toString() + ", Code Fidélité: " + codeFidelite + 
+               ", Taux Réduction: " + tauxReduction + "%";
     }
 }
