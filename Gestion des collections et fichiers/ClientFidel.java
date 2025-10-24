@@ -3,8 +3,7 @@ public class ClientFidel extends Client {
     private float tauxReduction;
 
     // Constructeur d'initialisation
-    public ClientFidel(int codeClient, String nomClient, String adrClient, 
-                      String codeFidelite, float tauxReduction) {
+    public ClientFidel(int codeClient, String nomClient, String adrClient, String codeFidelite, float tauxReduction) {
         super(codeClient, nomClient, adrClient);
         this.codeFidelite = codeFidelite;
         this.tauxReduction = tauxReduction;
