@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Program {
     public static void main(String[] args) {
         // Commandes
         Commande c1 = new Commande(1, new Date(), "Fournisseur A");
