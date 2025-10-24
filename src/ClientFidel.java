@@ -1,3 +1,4 @@
+package srcc;
 public class ClientFidel extends Client {
     private String CodeFidelite;
     private float TauxReduction;
