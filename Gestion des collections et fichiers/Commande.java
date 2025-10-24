@@ -1,64 +1,61 @@
-package srcc;
 import java.util.Date;
 
 public class Commande implements Comparable<Commande> {
-    // Attributes
-    private int NumCommande;
-    private Date DateCommande;
-    private String NomFournisseur;
+    private int numCommande;
+    private Date dateCommande;
+    private String nomFournisseur;
 
-    // Constructor
+    // Constructeur avec arguments
     public Commande(int numCommande, Date dateCommande, String nomFournisseur) {
-        this.NumCommande = numCommande;
-        this.DateCommande = dateCommande;
-        this.NomFournisseur = nomFournisseur;
+        this.numCommande = numCommande;
+        this.dateCommande = dateCommande;
+        this.nomFournisseur = nomFournisseur;
     }
 
-    // Getters and Setters
+    // Accesseurs (getters)
     public int getNumCommande() {
-        return NumCommande;
-    }
-
-    public void setNumCommande(int numCommande) {
-        NumCommande = numCommande;
+        return numCommande;
     }
 
     public Date getDateCommande() {
-        return DateCommande;
-    }
-
-    public void setDateCommande(Date dateCommande) {
-        DateCommande = dateCommande;
+        return dateCommande;
     }
 
     public String getNomFournisseur() {
-        return NomFournisseur;
+        return nomFournisseur;
+    }
+
+    // Mutateurs (setters)
+    public void setNumCommande(int numCommande) {
+        this.numCommande = numCommande;
+    }
+
+    public void setDateCommande(Date dateCommande) {
+        this.dateCommande = dateCommande;
     }
 
     public void setNomFournisseur(String nomFournisseur) {
-        NomFournisseur = nomFournisseur;
+        this.nomFournisseur = nomFournisseur;
     }
 
-    // toString method
+    // Méthode toString
     @Override
     public String toString() {
-        return "Commande [NumCommande=" + getNumCommande() + ", DateCommande=" + getDateCommande() + ", NomFournisseur="
-                + NomFournisseur + "]";
+        return "Commande - Numéro: " + numCommande + ", Date: " + dateCommande + ", Fournisseur: " + nomFournisseur;
     }
 
-    // equals method
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Commande other = (Commande) obj;
-        return this.NumCommande == other.NumCommande;
-    }
-
-    // compareTo method
+    // Méthode equals
     @Override
-    public int compareTo(Commande other) {
-        return this.DateCommande.compareTo(other.DateCommande);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Commande commande = (Commande) obj;
+        return numCommande == commande.numCommande;
+    }
+
+    // Implémentation de Comparable
+    @Override
+    public int compareTo(Commande autre) {
+        return this.dateCommande.compareTo(autre.dateCommande);
     }
 }
