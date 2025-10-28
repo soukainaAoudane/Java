@@ -1,6 +1,6 @@
 package Classes;
 
-class LignePanier {
+public class LignePanier {
     private Article article;
     private int quantite;
     

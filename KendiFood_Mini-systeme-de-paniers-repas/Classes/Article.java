@@ -4,7 +4,7 @@ import exceptions.ChampVideException;
 import exceptions.KendiFoodException;
 import exceptions.PrixNegatifException;
 
-class Article {
+public class Article {
     private String id;
     private String libelle;
     private int prixCentimes;
