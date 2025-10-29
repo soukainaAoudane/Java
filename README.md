@@ -1,4 +1,4 @@
-# 📚 Répertoire Java - Travaux avec le Prof
+# 📚 Répertoire Java - Travaux pratiques
 
 Ce repository contient tous les travaux pratiques et exercices réalisés en classe.
 
